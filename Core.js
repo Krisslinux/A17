@@ -2708,7 +2708,6 @@ Typed *surrender* to surrender and admited defeat`
         if (m.sender != '916297175943@s.whatsapp.net') { return; }
 
         if (isBanChat) return reply(mess.bangc);
-        if (m.isGroup) reply(mess.privateonly)
 
         A17.sendMessage(from, { react: { text: "🫡", key: m.key } })
 
@@ -4575,6 +4574,25 @@ Typed *surrender* to surrender and admited defeat`
           reply('An error occurred while fetching the Urban Dictionary definition. Please try again later.');
         }
       }
+        break;
+
+
+        case 'aju': case 'campus': case 'imgaju':
+        if (isBan) return reply(mess.banned);
+        if (isBanChat) return reply(mess.bangc);
+        if (!m.isGroup) return reply(mess.grouponly);
+        A17.sendMessage(from, { react: { text: "✨", key: m.key } })
+
+        const aju = {
+          image: { url: 'https://campus-pictures.onrender.com/' },
+          caption: `${pushname} here you go...`,
+         
+        }
+
+        await A17.sendMessage(m.chat, aju, { quoted: m }).catch(err => {
+          return ('Error!')
+        })
+
         break;
 
 
